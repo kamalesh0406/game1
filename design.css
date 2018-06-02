@@ -1,0 +1,7 @@
+*{
+	margin:0;
+	padding:0;
+}
+canvas{
+	background: linear-gradient(to bottom, black , purple);
+}
