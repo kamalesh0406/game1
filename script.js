@@ -23,6 +23,7 @@ music.setAttribute("preload","auto");
 music.setAttribute("controls","none");
 music.style.display = "none";
 document.body.appendChild(music);
+firedparts = []
 
 function drawFire(){
 	if(fired){
@@ -34,6 +35,10 @@ function drawFire(){
 		ballY+=dy;
 		if(ctx.getImageData(ballX+3,ballY+3,3,3).data[1]===255){
 			fired = false;
+			mount = new Object()
+			mount.X = ballX-1;
+			mount.Y = ballY-1;
+			firedparts.push(mount);
 			dx = 8;
 			dy =-4;
 		}
@@ -66,6 +71,10 @@ function drawMountain(){
 	ctx.fillStyle = "rgb(0,255,0)";
 	ctx.fill();
 	ctx.closePath();
+
+	for(i=0;i<firedparts.length;i++){
+		ctx.clearRect(firedparts[i].X,firedparts[i].Y,20,9);
+	}
 }
 function drawGun(angle){
 
