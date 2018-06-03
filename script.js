@@ -17,6 +17,12 @@ var fired = false;
 var ballX = Xend;
 var ballY = Yend;
 var score= 0;
+var music = document.createElement("audio");
+music.src ="Bomb.mp3"
+music.setAttribute("preload","auto");
+music.setAttribute("controls","none");
+music.style.display = "none";
+document.body.appendChild(music);
 
 function drawFire(){
 	if(fired){
@@ -36,6 +42,9 @@ function drawFire(){
 			dx = 6;
 		}
 		if(ballX>player2X && ballX <player2X+tankWidth && ballY<player2Y && ballY >player2Y-tankHeight){
+			
+
+			music.play();
 			fired = false;
 			dx = 8;
 			dy =-4;
